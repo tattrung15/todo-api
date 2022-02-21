@@ -1,10 +1,9 @@
 class InstanceError {
-    constructor(error) {
-      this.error = error;
-    }
+  constructor(error) {
+    this.error = error;
   }
-  
-  module.exports = {
-    InstanceError
-  };
-  
+}
+
+module.exports = {
+  InstanceError
+};

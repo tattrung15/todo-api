@@ -18,7 +18,9 @@
     "seed:dev": "cross-env NODE_ENV=development sequelize-cli db:seed --seed",
     "seed:rollback:dev": "cross-env NODE_ENV=development sequelize-cli db:seed:undo --seed",
     "seed:prod": "cross-env NODE_ENV=production sequelize-cli db:seed --seed",
-    "seed:rollback:prod": "cross-env NODE_ENV=production sequelize-cli db:seed:undo --seed"
+    "seed:rollback:prod": "cross-env NODE_ENV=production sequelize-cli db:seed:undo --seed",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint --fix src/**/*.js"
   },
   "author": "trung.buitat",
   "license": "ISC",
