@@ -18,8 +18,8 @@ function handleAppError(req, res) {
 
     res.status(status).json({
       status,
-      result: null,
-      message: message
+      message,
+      result: null
     });
   };
 }
@@ -32,8 +32,8 @@ function handleError(req, res) {
 
     res.status(INTERNAL_SERVER_ERROR).json({
       status: INTERNAL_SERVER_ERROR,
-      result: null,
-      message: 'Server Error'
+      message: 'Server Error',
+      result: null
     });
   };
 }
