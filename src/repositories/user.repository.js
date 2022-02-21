@@ -7,7 +7,7 @@ class _UserReposiory extends BaseRepository {
   }
 
   /**
-   * Get all task point history for export data
+   * Get all users
    * @param {{like: object, equal: object, sort: object}} data
    * @return {Promise<`User`[]>}
    */
