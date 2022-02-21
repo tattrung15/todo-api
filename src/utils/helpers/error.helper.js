@@ -17,7 +17,7 @@ function handleAppError(req, res) {
     LogService.logAppErrorRequest(req)(status, message);
 
     res.status(status).json({
-      code: status,
+      status,
       result: null,
       message: message
     });
@@ -31,7 +31,7 @@ function handleError(req, res) {
     LogService.logErrorRequest(req)(errorMsg);
 
     res.status(INTERNAL_SERVER_ERROR).json({
-      code: INTERNAL_SERVER_ERROR,
+      status: INTERNAL_SERVER_ERROR,
       result: null,
       message: 'Server Error'
     });
