@@ -7,7 +7,6 @@ class _UserController extends BaseController {
       // TODO
       this.resSuccess(req, res)(req.body);
     } catch (e) {
-      console.log(e);
       next(this.instanceError(e));
     }
   }
@@ -20,7 +19,6 @@ class _UserController extends BaseController {
 
       this.resSuccess(req, res)(result);
     } catch (e) {
-      console.log(e);
       next(this.instanceError(e));
     }
   }
