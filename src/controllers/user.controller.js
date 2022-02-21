@@ -11,11 +11,11 @@ class _UserController extends BaseController {
     }
   }
 
-  async getListUser(req, res, next) {
+  async getListUsers(req, res, next) {
     try {
-      const query = req.query;
+      const data = req.query;
 
-      const result = await UserReposiory.findAll(query);
+      const result = await UserReposiory.findAll(data);
 
       this.resSuccess(req, res)(result);
     } catch (e) {

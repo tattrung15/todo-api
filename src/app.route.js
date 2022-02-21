@@ -14,6 +14,6 @@ route.post(
   UserController.login
 );
 
-route.get('/users', UserController.getListUser);
+route.get('/users', UserController.getListUsers);
 
 module.exports = route;
