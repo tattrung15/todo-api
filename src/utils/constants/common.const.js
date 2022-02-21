@@ -1,1 +1,2 @@
 exports.PAGING_DEFAULT_LIMIT = 20;
+exports.STRING_LENGTH_LIMIT = 255;

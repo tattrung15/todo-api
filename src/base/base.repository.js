@@ -10,6 +10,16 @@ class BaseRepository extends BaseClass {
   }
 
   /**
+   * Create new record
+   * @param {object} data
+   * @param {object} trx
+   * @returns {Promise<`Model`>}
+   */
+  async create(data, trx = null) {
+    return await this.model.create(data, { transaction: trx });
+  }
+
+  /**
    * Find list record
    * @param {object} options
    * @returns {Promise<Array<`Model`>>}
