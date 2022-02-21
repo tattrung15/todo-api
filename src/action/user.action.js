@@ -20,4 +20,4 @@ class _UserAction extends BaseClass {
 }
 
 const UserAction = new _UserAction();
-module.exports = new UserAction();
+module.exports = UserAction;
