@@ -1,0 +1,1 @@
+exports.PAGING_DEFAULT_LIMIT = 20;
