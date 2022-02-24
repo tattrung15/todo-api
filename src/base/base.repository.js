@@ -1,4 +1,4 @@
-const { Op } = require('sequelize');
+const { Op, fn, col } = require('sequelize');
 const BaseClass = require('./base.class');
 const { PAGING_DEFAULT_LIMIT } = require('../utils/constants/common.const');
 const { escapeRegExp } = require('../utils/helpers/string.helper');
@@ -168,7 +168,7 @@ class BaseRepository extends BaseClass {
       condition[key] = value;
     }
     for (const key in data.sort) {
-      order.push([key, data.sort[key]]);
+      order.push([key, `${data.sort[key]} NULLS LAST`]);
     }
     if (!order.length) {
       order.push(['createdAt', 'desc']);

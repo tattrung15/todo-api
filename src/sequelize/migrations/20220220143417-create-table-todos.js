@@ -28,6 +28,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         defaultValue: 0
       },
+      due_date: {
+        allowNull: true,
+        type: Sequelize.DATE
+      },
       user_id: {
         allowNull: false,
         type: Sequelize.INTEGER,

@@ -1,6 +1,19 @@
-const { body } = require('express-validator');
-const { STRING_LENGTH_LIMIT } = require('../../utils/constants/common.const');
+const { body, query } = require('express-validator');
+const {
+  STRING_LENGTH_LIMIT,
+  DEFAULT_DATE_FORMAT
+} = require('../../utils/constants/common.const');
 const { TODO_STATUS } = require('../../utils/constants/todo.const');
+
+exports.validateQueryTodo = () => {
+  return [
+    query('dueDate')
+      .optional()
+      .isBoolean()
+      .withMessage('dueDate is invalid')
+      .toBoolean()
+  ];
+};
 
 exports.validateCreate = () => {
   return [
@@ -12,7 +25,11 @@ exports.validateCreate = () => {
     body('description')
       .optional()
       .isLength({ max: STRING_LENGTH_LIMIT })
-      .withMessage('The maximum length of description is 255 characters')
+      .withMessage('The maximum length of description is 255 characters'),
+    body('dueDate')
+      .optional()
+      .isDate({ format: DEFAULT_DATE_FORMAT })
+      .withMessage('dueDate is invalid')
   ];
 };
 

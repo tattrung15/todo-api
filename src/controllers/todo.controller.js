@@ -29,6 +29,7 @@ class _TodoController extends BaseController {
       const result = await TodoReposiory.create({
         title: body.title,
         description: body.description,
+        dueDate: body.dueDate,
         userId
       });
 
@@ -58,7 +59,8 @@ class _TodoController extends BaseController {
       const result = await TodoReposiory.update(
         {
           title: body.title,
-          description: body.description
+          description: body.description,
+          dueDate: body.dueDate
         },
         {
           where: {

@@ -20,6 +20,10 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: 0
       },
+      dueDate: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
       userId: {
         type: DataTypes.INTEGER,
         allowNull: false

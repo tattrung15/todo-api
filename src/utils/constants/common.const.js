@@ -1,2 +1,3 @@
 exports.PAGING_DEFAULT_LIMIT = 20;
 exports.STRING_LENGTH_LIMIT = 255;
+exports.DEFAULT_DATE_FORMAT = 'yyyy-MM-DD';

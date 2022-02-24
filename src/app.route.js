@@ -25,7 +25,12 @@ route.post(
 
 // route.get('/users', authenticateJwt, UserController.getListUsers);
 
-route.get('/todos', authenticateJwt, TodoController.getListTodos);
+route.get(
+  '/todos',
+  authenticateJwt,
+  validate(TodoValidator.validateQueryTodo()),
+  TodoController.getListTodos
+);
 
 route.post(
   '/todos',

@@ -1,3 +1,5 @@
+const e = require('express');
+const { Op } = require('sequelize');
 const BaseRepository = require('../base/base.repository');
 const { Todo } = require('../sequelize/models');
 
@@ -15,6 +17,18 @@ class _TodoReposiory extends BaseRepository {
     const options = {
       ...this.getBasicQueryOptions(data)
     };
+
+    if (data.dueDate) {
+      if (data.dueDate) {
+        options.where.dueDate = {
+          [Op.not]: null
+        };
+      } else {
+        options.where.dueDate = {
+          [Op.is]: null
+        };
+      }
+    }
 
     const result = await this.getList(options);
     return result;

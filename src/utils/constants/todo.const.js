@@ -1,5 +1,4 @@
 exports.TODO_STATUS = {
-    DONE: 1,
-    UN_DONE: 0
-  };
-  
+  DONE: 1,
+  UN_DONE: 0
+};
