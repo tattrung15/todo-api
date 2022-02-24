@@ -19,15 +19,9 @@ class _TodoReposiory extends BaseRepository {
     };
 
     if (data.dueDate) {
-      if (data.dueDate) {
-        options.where.dueDate = {
-          [Op.not]: null
-        };
-      } else {
-        options.where.dueDate = {
-          [Op.is]: null
-        };
-      }
+      options.where.dueDate = {
+        [Op.not]: null
+      };
     }
 
     const result = await this.getList(options);
