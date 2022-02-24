@@ -19,6 +19,27 @@ class _TodoReposiory extends BaseRepository {
     const result = await this.getList(options);
     return result;
   }
+
+  /**
+   * Update todo
+   * @param {object} data
+   * @param {object} options
+   * @param {object} trx
+   * @return {Promise<Array<number, number>>}
+   */
+  async update(data, options, trx = null) {
+    return this.model.update({ ...data }, { ...options, transaction: trx });
+  }
+
+  /**
+   * Delete todo
+   * @param {object} options
+   * @param {object} trx
+   * @return {Promise<number>} The number of destroyed rows
+   */
+  async delete(options, trx = null) {
+    return this.model.destroy({ ...options, transaction: trx });
+  }
 }
 
 const TodoReposiory = new _TodoReposiory(Todo);

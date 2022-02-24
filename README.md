@@ -7,7 +7,7 @@
 
 ## Environment variables:
 
-- `APP_PORT`=3000
+- `APP_PORT`=5000
 - `APP_JWT_SECRET`=123456
 - `PG_USERNAME`=postgres
 - `PG_PASSWORD`=123

@@ -25,8 +25,8 @@ module.exports = {
       },
       status: {
         allowNull: false,
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       user_id: {
         allowNull: false,
