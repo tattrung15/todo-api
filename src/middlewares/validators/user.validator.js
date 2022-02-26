@@ -8,6 +8,10 @@ exports.validateLogin = () => {
   ];
 };
 
+exports.validateToken = () => {
+  return [body('jwt').isString().withMessage('jwt is invalid')];
+};
+
 exports.validateSignUp = () => {
   return [
     body('username')

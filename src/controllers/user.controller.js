@@ -15,6 +15,18 @@ class _UserController extends BaseController {
     }
   }
 
+  async validateToken(req, res, next) {
+    try {
+      const { jwt } = req.body;
+
+      const result = await UserAction.validateToken(jwt);
+
+      this.resSuccess(req, res)(result);
+    } catch (e) {
+      next(this.instanceError(e));
+    }
+  }
+
   async signUp(req, res, next) {
     try {
       const { username, password } = req.body;

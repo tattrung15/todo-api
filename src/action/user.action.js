@@ -5,6 +5,7 @@ const UserReposiory = require('../repositories/user.repository');
 const { sequelize } = require('../sequelize/models');
 const { AppError } = require('../utils/helpers/error.helper');
 const AppConfig = require('../app.config');
+const HttpStatus = require('http-status');
 
 class _UserAction extends BaseClass {
   /**
@@ -52,6 +53,43 @@ class _UserAction extends BaseClass {
     );
 
     return { accessToken, user };
+  }
+
+  async validateToken(token) {
+    try {
+      const verified = jwt.verify(token, AppConfig.APP_JWT_SECRET);
+
+      if (!verified) {
+        throw new AppError('token is invalid');
+      }
+
+      const user = await UserReposiory.get({
+        where: {
+          username: verified.username
+        }
+      });
+
+      if (!user) {
+        throw new AppError('token is invalid');
+      }
+
+      delete user.dataValues.password;
+
+      const accessToken = jwt.sign(
+        {
+          id: user.id,
+          username: user.username
+        },
+        AppConfig.APP_JWT_SECRET,
+        {
+          expiresIn: '12h'
+        }
+      );
+
+      return { accessToken, user };
+    } catch (e) {
+      throw new AppError(e.message, HttpStatus.BAD_REQUEST);
+    }
   }
 
   async signUp(username, password) {

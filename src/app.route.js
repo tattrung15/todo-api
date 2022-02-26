@@ -18,6 +18,12 @@ route.post(
 );
 
 route.post(
+  '/validate',
+  validate(UserValidator.validateToken()),
+  UserController.validateToken
+);
+
+route.post(
   '/signup',
   validate(UserValidator.validateSignUp()),
   UserController.signUp
