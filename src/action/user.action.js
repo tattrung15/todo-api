@@ -5,7 +5,7 @@ const UserReposiory = require('../repositories/user.repository');
 const { sequelize } = require('../sequelize/models');
 const { AppError } = require('../utils/helpers/error.helper');
 const AppConfig = require('../app.config');
-const HttpStatus = require('http-status');
+const { BAD_REQUEST } = require('http-status');
 
 class _UserAction extends BaseClass {
   /**
@@ -32,11 +32,11 @@ class _UserAction extends BaseClass {
     });
 
     if (!user) {
-      throw new AppError('Incorrect username or password');
+      throw new AppError('Incorrect username or password', BAD_REQUEST);
     }
 
     if (!bcrypt.compareSync(password, user.password)) {
-      throw new AppError('Incorrect username or password');
+      throw new AppError('Incorrect username or password', BAD_REQUEST);
     }
 
     delete user.dataValues.password;
@@ -88,7 +88,7 @@ class _UserAction extends BaseClass {
 
       return { accessToken, user };
     } catch (e) {
-      throw new AppError(e.message, HttpStatus.BAD_REQUEST);
+      throw new AppError(e.message, BAD_REQUEST);
     }
   }
 
