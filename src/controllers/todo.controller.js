@@ -60,7 +60,7 @@ class _TodoController extends BaseController {
         {
           title: body.title,
           description: body.description,
-          dueDate: body.dueDate
+          dueDate: body.dueDate ? body.dueDate : null
         },
         {
           where: {
