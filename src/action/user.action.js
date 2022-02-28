@@ -100,7 +100,7 @@ class _UserAction extends BaseClass {
     });
 
     if (existUser) {
-      throw new AppError('Username already exists');
+      throw new AppError('Username already exists', BAD_REQUEST);
     }
 
     const user = await UserReposiory.create({
